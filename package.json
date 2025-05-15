@@ -20,5 +20,8 @@
   "homepage": "https://github.com/Alex-korr/backend-project-44#readme",
   "bin": {
     "backend-project-44": "bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
