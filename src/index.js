@@ -1,60 +1,41 @@
 import readlineSync from "readline-sync";
 
-let currentGivenAnswer = "";
-let currentGeneratedNumber;
-let rightAnswersCounter = 0;
-let correctAsnwer = "";
-let playerName;
-let gameOver = 0;
 const requiredCorrectAnswers = 3;
+let correctAnswerCounter = 0;
+let gameOver = 0;
 
-const askName = () => {
-  const name = readlineSync.question("May I have your name? ");
-  playerName = name;
-  return playerName;
-};
-
-function getRandomNumber() {
-  currentGeneratedNumber = Math.floor(Math.random() * 100) + 1;
-  return currentGeneratedNumber;
+const nameStore = {
+    playerName: null,
+    askName() {
+        this.playerName = readlineSync.question("May I have your name? ");
+        console.log(`Hello, ${this.playerName}!`);
+    }
 }
 
-const askForAnswer = () => {
-  console.log(`Question: ${getRandomNumber()}`);
-  const answer = readlineSync.question("Your answer: ");
-  currentGivenAnswer = answer.toLowerCase();
-  if (currentGeneratedNumber % 2 === 0) {
-    correctAsnwer = "yes";
-  } else {
-    correctAsnwer = "no";
-  }
+const gameEngine = (gameRules) => {
+    console.log(`Welcome to the Brain Games!`);
+    nameStore.askName();
+    console.log(gameRules.description);
 
-  if (currentGivenAnswer === correctAsnwer) {
-    rightAnswersCounter += 1;
-    if (rightAnswersCounter === requiredCorrectAnswers) {
-      console.log(`Congratulations, ${playerName}!`);
-    }
-    return "Correct!";
-  } else {
-    gameOver = 1;
-    console.log(
-      `'${currentGivenAnswer}' is wrong answer ;(. Correct answer was 'no'.`,
-    );
-    return `Let's try again, ${playerName}!`;
-  }
-};
+    do {
 
-const gameStarts = () => {
-  console.log("Welcome to the Brain Games!");
-  console.log(
-    `Hello, ${askName()}!\nAnswer 'yes' if number is even otherwise answer 'no'.`,
-  );
-  //console.log(`Question: ${getRandomNumber()}`);
-  //console.log(`${askForAnswer()}`)
-  do {
-    console.log(`${askForAnswer()}`);
-  } while (rightAnswersCounter < requiredCorrectAnswers && gameOver === 0);
-  //console.log(`Congratulations, ${playerName}!`);
-};
+      correctAnswerCounter += 1;
+      const { question, correctAnswer } = gameRules.generateQuestion();
+      console.log(`Question: ${question}`);
+      const userAnswer = readlineSync.question('Your answer: ');
 
-export { gameStarts };
+      if (userAnswer === correctAnswer) {
+        console.log('Correct!');
+      } else {
+        console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+        gameOver = 1;
+        return console.log(`Let's try again, ${nameStore.playerName}!`);
+      }
+    } while ( correctAnswerCounter < requiredCorrectAnswers && gameOver === 0 );
+ 
+    console.log(`Congratulations, ${nameStore.playerName}!`);
+}
+
+
+export { gameEngine };
+export { nameStore };
