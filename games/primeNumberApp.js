@@ -1,4 +1,4 @@
-import { gameEngine } from './index.js';
+import { gameEngine } from '../src/index.js';
 
 const generatePrimeNumberQuestion = () => {
    
