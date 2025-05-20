@@ -22,9 +22,9 @@ const gameEngine = (gameRules) => {
       correctAnswerCounter += 1;
       const { question, correctAnswer } = gameRules.generateQuestion();
       console.log(`Question: ${question}`);
-      const userAnswer = readlineSync.question('Your answer: ');
+      const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
 
-      if (userAnswer === correctAnswer) {
+      if (userAnswer === correctAnswer.toLowerCase()) {
         console.log('Correct!');
       } else {
         console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
