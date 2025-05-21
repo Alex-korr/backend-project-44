@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { nameStore } from "../src/index.js";
+import { start } from "../games/brainGames.js";
 
-nameStore.askName();
+start();
