@@ -1,37 +1,33 @@
-import { gameEngine } from '../src/index.js';
+import { gameEngine } from '../src/index.js'
 
 const generateProgressionQuestion = () => {
-  
-    const maxSequenceLength = 10;  
-    const difference = Math.floor(Math.random() * 4) + 1;  
-    const maxStart = 100 - 9 * difference;
-    const start = Math.floor(Math.random() * maxStart) + 1;
-    const sequence = [];
-    const blankSpace = Math.floor(Math.random() * maxSequenceLength);
-    let question = [];
-    let correctAnswer;
+  const maxSequenceLength = 10
+  const difference = Math.floor(Math.random() * 4) + 1
+  const maxStart = 100 - 9 * difference
+  const start = Math.floor(Math.random() * maxStart) + 1
+  const sequence = []
+  const blankSpace = Math.floor(Math.random() * maxSequenceLength)
+  let question = []
+  let correctAnswer
 
-      for (let i = 0; i < maxSequenceLength; i++) {
+  for (let i = 0; i < maxSequenceLength; i++) {
+    sequence.push(start + i * difference)
+  }
 
-        sequence.push(start + i * difference);
+  correctAnswer = String(sequence[blankSpace])
 
-        }
+  sequence[blankSpace] = '..'
 
-        correctAnswer = String(sequence[blankSpace]);
+  question = sequence.join(' ')
 
-        sequence[blankSpace] = '..'
-
-        question = sequence;
-   
-    return { question, correctAnswer };
-  };
+  return { question, correctAnswer }
+}
 
 const progressionGame = {
-    description: 'What number is missing in the progression?',
-    generateQuestion: generateProgressionQuestion
-  };
+  description: 'What number is missing in the progression?',
+  generateQuestion: generateProgressionQuestion,
+}
 
-const start = () => gameEngine(progressionGame);
+const start = () => gameEngine(progressionGame)
 
-start()
-export { start };
+export { start }

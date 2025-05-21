@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { start } from "../games/calculatorApp.js";
+import { start } from '../games/calculatorApp.js'
 
-start();
+start()

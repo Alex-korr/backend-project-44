@@ -1,36 +1,32 @@
-
-import { gameEngine } from '../src/index.js';
+import { gameEngine } from '../src/index.js'
 
 const generateGCDQuestion = () => {
+  const a = Math.floor(Math.random() * 100 + 1)
+  const b = Math.floor(Math.random() * 100 + 1)
 
-  const a = Math.floor(Math.random() * 100 +1 );
-  const b = Math.floor(Math.random() * 100 + 1);
-  
-  let x = Math.abs(a);
-  let y = Math.abs(b);
-  let result = 0;
+  let x = Math.abs(a)
+  let y = Math.abs(b)
+  let result = 0
 
   while (y !== 0) {
-    [x, y] = [y, x % y];
-
+    [x, y] = [y, x % y]
   }
 
-  result = x;
+  result = x
 
   return {
 
     question: `${a} ${b}`,
-    correctAnswer: String(result)
+    correctAnswer: String(result),
 
+  }
 }
 
-  };
-
 const gcdGame = {
-    description: 'Find the greatest common divisor of given numbers.',
-    generateQuestion: generateGCDQuestion
-  };
+  description: 'Find the greatest common divisor of given numbers.',
+  generateQuestion: generateGCDQuestion,
+}
 
-const start = () => gameEngine(gcdGame);
+const start = () => gameEngine(gcdGame)
 
-export { start };
+export { start }

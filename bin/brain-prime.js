@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { start } from "../games/primeNumberApp.js";
+import { start } from '../games/primeNumberApp.js'
 
-start();
+start()
