@@ -10,12 +10,12 @@ on:
 jobs:
   sonarqube:
     name: SonarQube Analysis
-    runs-on: ubuntu-latest  # Ubuntu is recommended for better compatibility
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history needed for accurate analysis
+          fetch-depth: 0
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -24,9 +24,6 @@ jobs:
           distribution: 'temurin'
 
       - name: Run SonarQube Scanner
-        uses: SonarSource/sonarqube-scan-action@v5
-        with:
-          projectKey: my-cool-project         # ← Change this to your project key
-          organization: your-org-name         # ← Only if using SonarCloud
-          scannerMode: CLI
-          sonarLogin: ${{ secrets.SONAR_TOKEN }}
+        uses: SonarSource/sonarqube-scan-action@v3
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
