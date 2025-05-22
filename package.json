@@ -1,5 +1,6 @@
 {
   "name": "@hexlet/code",
+  "type": "module",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Alex-korr/backend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Alex-korr/backend-project-44/actions)",
   "main": "index.js",
@@ -15,7 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/Alex-korr/backend-project-44/issues"
   },
