@@ -1,4 +1,4 @@
-import { gameEngine } from '../src/index.js'
+import { gameEngine } from '../index.js'
 
 const generateProgressionQuestion = () => {
   const maxSequenceLength = 10

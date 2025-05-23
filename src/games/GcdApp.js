@@ -1,4 +1,4 @@
-import { gameEngine } from '../src/index.js'
+import { gameEngine } from '../index.js'
 
 const generateGCDQuestion = () => {
   const a = Math.floor(Math.random() * 100 + 1)

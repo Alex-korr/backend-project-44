@@ -1,4 +1,4 @@
-import { nameStore } from '../src/index.js'
+import { nameStore } from '../index.js'
 
 const start = () => {
   console.log('Welcome to the Brain Games!')

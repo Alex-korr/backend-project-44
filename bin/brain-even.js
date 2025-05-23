@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { start } from '../games/evenApp.js'
+import { start } from '../src/games/evenApp.js'
 
 start()
