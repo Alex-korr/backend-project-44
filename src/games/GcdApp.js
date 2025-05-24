@@ -1,8 +1,9 @@
 import { gameEngine } from '../index.js'
+import { nameStore } from '../index.js';
 
 const generateGCDQuestion = () => {
-  const a = Math.floor(Math.random() * 100 + 1)
-  const b = Math.floor(Math.random() * 100 + 1)
+  const a = nameStore.getRandomNumber(1, 100)
+  const b = nameStore.getRandomNumber(1, 100)
 
   let x = Math.abs(a)
   let y = Math.abs(b)

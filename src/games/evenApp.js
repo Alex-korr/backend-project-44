@@ -1,7 +1,8 @@
 import { gameEngine } from '../index.js'
+import { nameStore } from '../index.js'
 
 const generateEvenQuestion = () => {
-  const number = Math.floor(Math.random() * 100) + 1
+  const number = nameStore.getRandomNumber(1, 100)
   const question = String(number)
   const correctAnswer = number % 2 === 0 ? 'yes' : 'no'
 

@@ -1,12 +1,13 @@
 import { gameEngine } from '../index.js'
+import { nameStore } from '../index.js'
 
 const generateProgressionQuestion = () => {
   const maxSequenceLength = 10
-  const difference = Math.floor(Math.random() * 4) + 1
+  const difference = nameStore.getRandomNumber(1,4)
   const maxStart = 100 - 9 * difference
-  const start = Math.floor(Math.random() * maxStart) + 1
+  const start = nameStore.getRandomNumber(1, maxStart)
   const sequence = []
-  const blankSpace = Math.floor(Math.random() * maxSequenceLength)
+  const blankSpace = nameStore.getRandomNumber(1, maxSequenceLength)
   let question = []
   let correctAnswer
 

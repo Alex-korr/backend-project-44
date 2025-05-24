@@ -1,7 +1,8 @@
 import { gameEngine } from '../index.js'
+import { nameStore } from '../index.js'
 
 const generatePrimeNumberQuestion = () => {
-  const randomNumber = Math.floor(Math.random() * 100 + 1)
+  const randomNumber = nameStore.getRandomNumber(1, 100)
   const question = randomNumber
   let correctAnswer
 

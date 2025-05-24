@@ -1,10 +1,11 @@
 import { gameEngine } from '../index.js'
+import { nameStore } from '../index.js'
 
 const randomCalculatorQuestion = () => {
   const operatorRange = ['+', '-', '*']
-  const randomIndex = Math.floor(Math.random() * operatorRange.length)
-  const a = Math.floor(Math.random() * 10)
-  const b = Math.floor(Math.random() * 10)
+  const randomIndex = nameStore.getRandomNumber(0, operatorRange.length)
+  const a = nameStore.getRandomNumber(0, 10)
+  const b = nameStore.getRandomNumber(0, 10)
   const operator = operatorRange[randomIndex]
 
   let generatedQuestion
