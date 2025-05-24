@@ -2,7 +2,7 @@ import { gameEngine } from '../index.js'
 import { nameStore } from '../index.js'
 
 const generateProgressionQuestion = (maxSequenceLength = 10) => {
-  const difference = nameStore.getRandomNumber(1,4)
+  const difference = nameStore.getRandomNumber(1, 4)
   const maxStart = 100 - (maxSequenceLength - 1) * difference
   const start = nameStore.getRandomNumber(1, maxStart)
   const sequence = []

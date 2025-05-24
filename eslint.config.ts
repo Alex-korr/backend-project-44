@@ -40,6 +40,7 @@ export default [
       "@stylistic/no-trailing-spaces": "error",
       "@stylistic/comma-dangle": ["error", "always-multiline"],
       "@stylistic/indent": ["error", 2],
+      '@stylistic/js/semi': ['error', 'never'],
 
       // You can keep/add other rules here
     },

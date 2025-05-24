@@ -3,7 +3,7 @@ import { nameStore } from '../index.js'
 
 const randomCalculatorQuestion = () => {
   const operatorRange = ['+', '-', '*']
-  const randomIndex = nameStore.getRandomNumber(0, operatorRange.length)
+  const randomIndex = nameStore.getRandomNumber(0, operatorRange.length - 1)
   const a = nameStore.getRandomNumber(0, 10)
   const b = nameStore.getRandomNumber(0, 10)
   const operator = operatorRange[randomIndex]

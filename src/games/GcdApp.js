@@ -1,5 +1,5 @@
 import { gameEngine } from '../index.js'
-import { nameStore } from '../index.js';
+import { nameStore } from '../index.js'
 
 const generateGCDQuestion = () => {
   const a = nameStore.getRandomNumber(1, 100)
